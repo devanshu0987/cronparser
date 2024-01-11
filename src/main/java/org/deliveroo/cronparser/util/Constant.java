@@ -10,4 +10,6 @@ public final class Constant {
     public static final String HYPHEN = "-";
     public static final String ASTERISK = "*";
     public static final String SPACE = " ";
+    public static final Integer noOfParts = 6;
+    public static final String QUESTION_MARK = "?";
 }
