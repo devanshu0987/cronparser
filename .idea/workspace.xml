@@ -72,7 +72,7 @@
       <recent name="org.deliveroo.cronparser.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ParseExpressionTests.Test2">
+  <component name="RunManager" selected="Gradle.ParseMinuteTests">
     <configuration name="ParseExpressionTests.Test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -121,8 +121,33 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ParseMinuteTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.deliveroo.cronparser.ParseMinuteTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ParseMinuteTests" />
         <item itemvalue="Gradle.ParseExpressionTests.Test2" />
         <item itemvalue="Gradle.ParseExpressionTests.Test1" />
       </list>
