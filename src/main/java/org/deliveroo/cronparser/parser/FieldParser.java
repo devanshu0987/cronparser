@@ -29,6 +29,10 @@ public class FieldParser {
                 // Only range left. Parse it using the type information and validate the ranges.
                 f.setRange(parseRange(field, type));
             } else {
+                // Anything with a slash is a range
+                // 1/15 = [1-end]/15
+                // */15 = [1-end]/15
+                // 1-20/15 = [1-20]/15
                 String rangeStr = field.substring(0, slashPos);
                 String step = field.substring(slashPos + 1);
                 Range range = parseRange(rangeStr, type);
@@ -39,6 +43,14 @@ public class FieldParser {
                 }
                 if (delta >= type.getRange().getMax()) {
                     throw new IllegalArgumentException("Step is greater than type range");
+                }
+
+                // here the delta is valid and range is valid.
+                // 1/15 case.
+                int hyphenPos = rangeStr.indexOf(HYPHEN);
+                if (hyphenPos == -1) {
+                    // 1 value, along with step => You need to start from start and keep going till end.
+                    range = new Range(range.getMin(), type.getRange().getMax());
                 }
                 f.setRange(range, delta);
             }

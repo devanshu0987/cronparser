@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46a5b70-ff92-479f-a658-5a4c2031ccdf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseMinuteTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseMinuteTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseMinuteTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,9 +146,34 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ParseMinuteTests.OneValueSlashOne" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.deliveroo.cronparser.ParseMinuteTests.OneValueSlashOne&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ParseMinuteTests" />
+        <item itemvalue="Gradle.ParseMinuteTests.OneValueSlashOne" />
         <item itemvalue="Gradle.ParseExpressionTests.Test2" />
         <item itemvalue="Gradle.ParseExpressionTests.Test1" />
       </list>
@@ -163,5 +189,16 @@
       <updated>1704949752140</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
