@@ -32,10 +32,10 @@ public class CronExpression {
 
         try {
             CronField minute = (new MinuteParser()).parse(tokens[0]);
-            CronField hour = (new HourParser()).parse(tokens[0]);
-            CronField dayOfMonth = (new DayOfMonthParser()).parse(tokens[0]);
-            CronField month = (new MonthParser()).parse(tokens[0]);
-            CronField dayOfWeek = (new DayOfWeekParser()).parse(tokens[0]);
+            CronField hour = (new HourParser()).parse(tokens[1]);
+            CronField dayOfMonth = (new DayOfMonthParser()).parse(tokens[2]);
+            CronField month = (new MonthParser()).parse(tokens[3]);
+            CronField dayOfWeek = (new DayOfWeekParser()).parse(tokens[4]);
             String command = tokens[5];
 
             return new CronExpression(minute, hour, dayOfMonth, month, dayOfWeek, command, Expression);

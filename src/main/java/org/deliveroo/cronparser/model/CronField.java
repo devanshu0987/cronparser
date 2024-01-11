@@ -26,4 +26,10 @@ public class CronField {
     public void setRange(List<Integer> range) {
         items.addAll(range);
     }
+
+    public void setRange(Range r) {
+        for (int start = r.getMin(); start <= r.getMax(); start = start + 1) {
+            items.add(start);
+        }
+    }
 }

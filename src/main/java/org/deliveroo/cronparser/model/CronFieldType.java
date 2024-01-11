@@ -26,6 +26,10 @@ public enum CronFieldType {
         return range;
     }
 
+    public boolean validateValue(int value) {
+        return value >= this.getRange().getMin() && value <= this.getRange().getMax();
+    }
+
     public String getName() {
         return name;
     }
