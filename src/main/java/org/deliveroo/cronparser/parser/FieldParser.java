@@ -24,7 +24,7 @@ public class FieldParser {
                 f.setRange(List.of(0, 15, 30, 45));
 
             if (type == CronFieldType.HOUR)
-                f.setRange(List.of(0));
+                f.setRange(parseRange(field, type));
 
             if (type == CronFieldType.DAY_OF_MONTH)
                 f.setRange(parseRange(field, type));
@@ -33,7 +33,7 @@ public class FieldParser {
                 f.setRange(parseRange(field, type));
 
             if (type == CronFieldType.DAY_OF_WEEK)
-                f.setRange(List.of(1, 2, 3, 4, 5));
+                f.setRange(parseRange(field, type));
         }
         return f;
     }
@@ -58,8 +58,18 @@ public class FieldParser {
                     throw new IllegalArgumentException("Type validation failed for : " + type.getName());
                 }
             } else {
-                // we have a-b range that we can handle
-                throw new IllegalArgumentException("Not implemented : " + value);
+                // we have a-b range that we can handle.
+                String leftHalf = value.substring(0, hyphenPos);
+                String rightHalf = value.substring(hyphenPos + 1);
+                int left = Integer.parseInt(leftHalf);
+                int right = Integer.parseInt(rightHalf);
+                boolean leftStatus = type.validateValue(left);
+                boolean rightStatus = type.validateValue(right);
+                if (leftStatus && rightStatus) {
+                    return new Range(left, right);
+                } else {
+                    throw new IllegalArgumentException("Type validation failed for : " + type.getName());
+                }
             }
         }
     }
