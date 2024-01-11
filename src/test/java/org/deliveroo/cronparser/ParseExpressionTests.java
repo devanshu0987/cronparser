@@ -29,4 +29,9 @@ public class ParseExpressionTests {
         assertEquals(exp.getFields()[3].getItems(), List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
         assertEquals(exp.getFields()[4].getItems(), List.of(1, 2, 3, 4, 5, 6, 7));
     }
+
+    @Test
+    public void TestException() {
+        assertThrows(IllegalArgumentException.class, () -> CronExpression.Parse("1 0 2 1 15 ls"));
+    }
 }
