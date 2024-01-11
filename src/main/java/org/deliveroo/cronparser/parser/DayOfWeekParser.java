@@ -8,9 +8,6 @@ public class DayOfWeekParser implements Parser {
     @Override
     public CronField parse(String expression) {
 
-        // mock
-        CronField f = new CronField(expression, CronFieldType.DAY_OF_WEEK);
-
-        return f;
+        return FieldParser.parseField(expression, CronFieldType.DAY_OF_WEEK);
     }
 }

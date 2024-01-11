@@ -7,9 +7,6 @@ public class HourParser implements Parser {
 
     @Override
     public CronField parse(String expression) {
-        // mock
-        CronField f = new CronField(expression, CronFieldType.HOUR);
-
-        return f;
+        return FieldParser.parseField(expression, CronFieldType.HOUR);
     }
 }

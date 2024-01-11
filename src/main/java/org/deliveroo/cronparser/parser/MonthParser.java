@@ -7,9 +7,6 @@ public class MonthParser implements Parser {
 
     @Override
     public CronField parse(String expression) {
-        // mock
-        CronField f = new CronField(expression, CronFieldType.MONTH);
-
-        return f;
+        return FieldParser.parseField(expression, CronFieldType.MONTH);
     }
 }

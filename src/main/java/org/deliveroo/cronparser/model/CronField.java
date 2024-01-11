@@ -22,4 +22,8 @@ public class CronField {
     public List<Integer> getItems() {
         return items;
     }
+
+    public void setRange(List<Integer> range) {
+        items.addAll(range);
+    }
 }
