@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46a5b70-ff92-479f-a658-5a4c2031ccdf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseMinuteTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseExpressionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseExpressionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <recent name="org.deliveroo.cronparser.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.ParseExpressionTests.Test2">
     <configuration name="ParseExpressionTests.Test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -97,8 +97,33 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ParseExpressionTests.Test2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.deliveroo.cronparser.ParseExpressionTests.Test2&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ParseExpressionTests.Test2" />
         <item itemvalue="Gradle.ParseExpressionTests.Test1" />
       </list>
     </recent_temporary>
