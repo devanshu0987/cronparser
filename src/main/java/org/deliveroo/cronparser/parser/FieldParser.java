@@ -14,8 +14,21 @@ public class FieldParser {
 
         CronField f = new CronField(value, type);
 
-        if(type == CronFieldType.HOUR)
+        if (type == CronFieldType.MINUTE)
+            f.setRange(List.of(0, 15, 30, 45));
+
+        if (type == CronFieldType.HOUR)
             f.setRange(List.of(0));
+
+        if (type == CronFieldType.DAY_OF_MONTH)
+            f.setRange(List.of(1, 15));
+
+        if (type == CronFieldType.MONTH)
+            f.setRange(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+
+        if (type == CronFieldType.DAY_OF_WEEK)
+            f.setRange(List.of(1, 2, 3, 4, 5));
+
 
         return f;
     }
