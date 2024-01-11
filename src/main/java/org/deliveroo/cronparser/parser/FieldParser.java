@@ -62,7 +62,7 @@ public class FieldParser {
     // a-b
     // a
     private static Range parseRange(String value, CronFieldType type) {
-        if (value.equals(ASTERISK)) {
+        if (value.equals(ASTERISK) || value.equals(QUESTION_MARK)) {
             return type.getRange();
         } else {
             int hyphenPos = value.indexOf(HYPHEN);
