@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ParseMinuteTests {
 
@@ -73,6 +74,31 @@ public class ParseMinuteTests {
     public void CommaSlash() {
         CronField minute = (new MinuteParser()).parse("2,4,6/6");
         assertEquals(minute.getItems(), List.of(2, 4, 6, 12, 18, 24, 30, 36, 42, 48, 54));
+    }
+
+    @Test
+    public void IllegalCharsParsingErrorTest() {
+        List<String> testCases = List.of(
+                "/15", " /15", "hello/world", "1/a",
+                "a-b", "*-b", "hello-world", "a-b-c-d",
+                "hello", "     "
+        );
+        for (var testCase : testCases) {
+            assertThrows(IllegalArgumentException.class, () -> (new MinuteParser()).parse(testCase));
+        }
+    }
+
+    @Test
+    public void IllegalRangeParsingErrorTest() {
+        List<String> testCases = List.of(
+                "1000/5", "-1/5", "600/5", "400-299/5","1-500/5", // first part wrong
+                "1/65", "1/-5", "1/0", "1/5-6", "1/*", "1/-", "1/ ", "1/,,,,", // step is wrong
+                "1-200", "1,200",
+                "1,,200"
+        );
+        for (var testCase : testCases) {
+            assertThrows(IllegalArgumentException.class, () -> (new MinuteParser()).parse(testCase));
+        }
     }
 
 }
