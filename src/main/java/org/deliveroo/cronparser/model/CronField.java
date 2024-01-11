@@ -32,4 +32,10 @@ public class CronField {
             items.add(start);
         }
     }
+
+    public void setRange(Range r, int delta) {
+        for (int start = r.getMin(); start <= r.getMax(); start = start + delta) {
+            items.add(start);
+        }
+    }
 }

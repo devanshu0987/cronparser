@@ -20,20 +20,28 @@ public class FieldParser {
         String[] fields = value.split(COMMA);
 
         for (String field : fields) {
-            if (type == CronFieldType.MINUTE)
-                f.setRange(List.of(0, 15, 30, 45));
+            // HANDLE SLASH WHICH GIVES STEP INFORMATION.
+            // slashes can be combined with ranges to specify step values
+            int slashPos = field.indexOf(SLASH);
 
-            if (type == CronFieldType.HOUR)
+            if (slashPos == -1) {
+                // no slash present => no steps, take the full range if present.
+                // Only range left. Parse it using the type information and validate the ranges.
                 f.setRange(parseRange(field, type));
+            } else {
+                String rangeStr = field.substring(0, slashPos);
+                String step = field.substring(slashPos + 1);
+                Range range = parseRange(rangeStr, type);
 
-            if (type == CronFieldType.DAY_OF_MONTH)
-                f.setRange(parseRange(field, type));
-
-            if (type == CronFieldType.MONTH)
-                f.setRange(parseRange(field, type));
-
-            if (type == CronFieldType.DAY_OF_WEEK)
-                f.setRange(parseRange(field, type));
+                int delta = Integer.parseInt(step);
+                if (delta <= 0) {
+                    throw new IllegalArgumentException("Step is less than 0");
+                }
+                if (delta >= type.getRange().getMax()) {
+                    throw new IllegalArgumentException("Step is greater than type range");
+                }
+                f.setRange(range, delta);
+            }
         }
         return f;
     }
