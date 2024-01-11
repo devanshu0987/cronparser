@@ -12,31 +12,26 @@ public class CronExpression {
     public CronExpression() {
     }
 
-    private CronExpression(CronField minutes,
-                           CronField hours,
-                           CronField daysOfMonth,
-                           CronField months,
-                           CronField daysOfWeek,
-                           String command,
-                           String expression) {
+    private CronExpression(CronField minutes, CronField hours, CronField daysOfMonth, CronField months,
+                           CronField daysOfWeek, String command, String expression) {
 
         this.fields = new CronField[]{minutes, hours, daysOfMonth, months, daysOfWeek};
         this.command = command;
         this.expression = expression;
     }
 
-    // 5 Fields + 1 more field
     public static CronExpression Parse(String Expression) {
 
-        String[] tokens = Expression.split(SPACE);
+        CronExpressionTokenizer tokenizer = new CronExpressionTokenizer(Expression);
+        CronExpressionParser parser = new CronExpressionParser();
 
         try {
-            CronField minute = (new MinuteParser()).parse(tokens[0]);
-            CronField hour = (new HourParser()).parse(tokens[1]);
-            CronField dayOfMonth = (new DayOfMonthParser()).parse(tokens[2]);
-            CronField month = (new MonthParser()).parse(tokens[3]);
-            CronField dayOfWeek = (new DayOfWeekParser()).parse(tokens[4]);
-            String command = tokens[5];
+            CronField minute = parser.getParserInstance(CronFieldType.MINUTE).parse(tokenizer.getToken(CronFieldType.MINUTE));
+            CronField hour = parser.getParserInstance(CronFieldType.HOUR).parse(tokenizer.getToken(CronFieldType.HOUR));
+            CronField dayOfMonth = parser.getParserInstance(CronFieldType.DAY_OF_MONTH).parse(tokenizer.getToken(CronFieldType.DAY_OF_MONTH));
+            CronField month = parser.getParserInstance(CronFieldType.MONTH).parse(tokenizer.getToken(CronFieldType.MONTH));
+            CronField dayOfWeek = parser.getParserInstance(CronFieldType.DAY_OF_WEEK).parse(tokenizer.getToken(CronFieldType.DAY_OF_WEEK));
+            String command = tokenizer.getToken(CronFieldType.COMMAND);
 
             return new CronExpression(minute, hour, dayOfMonth, month, dayOfWeek, command, Expression);
 
