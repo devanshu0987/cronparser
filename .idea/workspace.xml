@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b46a5b70-ff92-479f-a658-5a4c2031ccdf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseExpressionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/ParseExpressionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +17,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,9 +40,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2anMAyLQwpjYhwL4iFsSNEDBLtU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,7 +55,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/devansm/source/repos/deliveroo/cronparser/src/main/java/org/deliveroo/cronparser/parser"
   }
 }]]></component>
