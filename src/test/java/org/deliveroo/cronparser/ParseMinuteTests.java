@@ -94,7 +94,8 @@ public class ParseMinuteTests {
                 "1000/5", "-1/5", "600/5", "400-299/5","1-500/5", // first part wrong
                 "1/65", "1/-5", "1/0", "1/5-6", "1/*", "1/-", "1/ ", "1/,,,,", // step is wrong
                 "1-200", "1,200",
-                "1,,200"
+                "1,,200",
+                "?"
         );
         for (var testCase : testCases) {
             assertThrows(IllegalArgumentException.class, () -> (new MinuteParser()).parse(testCase));
