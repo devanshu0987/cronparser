@@ -14,9 +14,8 @@ public class CronField {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%-14s", type) + " : " + items;
+    public String printParsedExpression() {
+        return String.format("%-14s", type.print()) + " : " + items;
     }
 
     public List<Integer> getItems() {

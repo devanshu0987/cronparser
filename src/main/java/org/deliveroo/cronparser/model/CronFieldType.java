@@ -16,9 +16,7 @@ public enum CronFieldType {
         this.name = name;
         this.range = range;
     }
-
-    @Override
-    public String toString() {
+    public String print() {
         return name;
     }
 

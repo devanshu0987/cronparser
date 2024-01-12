@@ -2,15 +2,10 @@ package org.deliveroo.cronparser.model;
 
 import org.deliveroo.cronparser.parser.*;
 
-import static org.deliveroo.cronparser.util.Constant.SPACE;
-
 public class CronExpression {
     private CronField[] fields;
     private String expression;
     private String command;
-
-    public CronExpression() {
-    }
 
     private CronExpression(CronField minutes, CronField hours, CronField daysOfMonth, CronField months,
                            CronField daysOfWeek, String command, String expression) {
@@ -20,7 +15,7 @@ public class CronExpression {
         this.expression = expression;
     }
 
-    public static CronExpression Parse(String Expression) {
+    public static CronExpression parse(String Expression) {
 
         CronExpressionTokenizer tokenizer = new CronExpressionTokenizer(Expression);
         CronExpressionParser parser = new CronExpressionParser();
@@ -44,7 +39,7 @@ public class CronExpression {
     public String printParsedExpression() {
         StringBuilder res = new StringBuilder();
         for (var f : fields) {
-            res.append(f.toString());
+            res.append(f.printParsedExpression());
             res.append(System.lineSeparator());
         }
 
@@ -59,5 +54,9 @@ public class CronExpression {
 
     public String getExpression() {
         return expression;
+    }
+
+    public String getCommand() {
+        return command;
     }
 }

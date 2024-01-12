@@ -8,11 +8,12 @@
 - Expand cron expressions into lists of valid values.
 - Supports the standard cron expression format with five fields: minute, hour, day of month, month, and day of week.
 - Followed, at the end by a command.
+- Not handling the special time strings such as "@yearly".
 - Tokens are separated by SPACE character.
 - Example
   - ```*/15 0 1,15 * 1-5 ls```
 
-![crontab1.png](crontab1.png)
+![specification.png](specification.png)
 
 | Fields       | Allowed Special Characters | 
 |--------------|:--------------------------:|
@@ -79,13 +80,13 @@ OR
 
 Open in the directory where the jar file is present.
 
-  ```bash
-      "java -jar {jarName}.jar "cron_expression"
-  ```
+```bash
+  java -jar {jarName}.jar "cron_expression"
+```
 
 ```bash
-   "java -jar cronparser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
-  ```
+  java -jar cronparser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
+```
 
 Required Field : argument (cron_expression), else exception will be thrown.
 
@@ -94,8 +95,8 @@ Required Field : argument (cron_expression), else exception will be thrown.
 1. Parsing correct cron expression
 
 ```bash
-   "java -jar cronparser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
-  ```
+  java -jar cronparser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
+```
 
 Output
 
@@ -104,7 +105,7 @@ Output
 2. Parsing incorrect expression with missing field.
 
 ```bash
-   "java -jar cronparser-1.0-SNAPSHOT.jar "**"
+   java -jar cronparser-1.0-SNAPSHOT.jar "**"
   ```
 
 Output

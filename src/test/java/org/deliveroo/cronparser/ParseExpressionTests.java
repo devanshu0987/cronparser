@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ParseExpressionTests {
 
     @Test
-    public void Test1() {
-        CronExpression exp = CronExpression.Parse("*/15 0 1,15 * 1-5 ls");
+    public void HappyPath() {
+        CronExpression exp = CronExpression.parse("*/15 0 1,15 * 1-5 ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(0, 15, 30, 45));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
         assertEquals(exp.getFields()[2].getItems(), List.of(1, 15));
@@ -21,8 +21,8 @@ public class ParseExpressionTests {
     }
 
     @Test
-    public void Test2() {
-        CronExpression exp = CronExpression.Parse("5,10 0 2 * * ls");
+    public void HappyPathStar() {
+        CronExpression exp = CronExpression.parse("5,10 0 2 * * ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(5, 10));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
         assertEquals(exp.getFields()[2].getItems(), List.of(2));
@@ -32,12 +32,12 @@ public class ParseExpressionTests {
 
     @Test
     public void TestException() {
-        assertThrows(IllegalArgumentException.class, () -> CronExpression.Parse("1 0 2 1 15 ls"));
+        assertThrows(IllegalArgumentException.class, () -> CronExpression.parse("1 0 2 1 15 ls"));
     }
 
     @Test
     public void TestQuestionMark(){
-        CronExpression exp = CronExpression.Parse("5,10 0 2 * ? ls");
+        CronExpression exp = CronExpression.parse("5,10 0 2 * ? ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(5, 10));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
         assertEquals(exp.getFields()[2].getItems(), List.of(2));
