@@ -4,10 +4,7 @@ import org.deliveroo.cronparser.model.CronField;
 import org.deliveroo.cronparser.model.CronFieldType;
 import org.deliveroo.cronparser.model.Range;
 
-import java.util.List;
-
 import static org.deliveroo.cronparser.util.Constant.*;
-import static org.deliveroo.cronparser.util.Constant.HYPHEN;
 
 public class FieldParser {
     // This will serve as a common place to parse any cron field.
@@ -15,7 +12,7 @@ public class FieldParser {
         // VALIDATION
         if (value.isEmpty() || value.isBlank()) throw new IllegalArgumentException(type + " part should not be empty");
 
-        CronField f = new CronField(value, type);
+        CronField parsedCronField = new CronField(value, type);
         // HANDLE COMMA
         String[] fields = value.split(COMMA);
 
@@ -27,7 +24,7 @@ public class FieldParser {
             if (slashPos == -1) {
                 // no slash present => no steps, take the full range if present.
                 // Only range left. Parse it using the type information and validate the ranges.
-                f.setRange(parseRange(field, type));
+                parsedCronField.setRange(parseRange(field, type));
             } else {
                 // Anything with a slash is a range
                 // 1/15 = [1-end]/15
@@ -52,16 +49,16 @@ public class FieldParser {
                     // 1 value, along with step => You need to start from start and keep going till end.
                     range = new Range(range.getMin(), type.getRange().getMax());
                 }
-                f.setRange(range, delta);
+                parsedCronField.setRange(range, delta);
             }
         }
-        return f;
+        return parsedCronField;
     }
 
     // *
     // a-b
     // a
-    private static Range parseRange(String value, CronFieldType type) {
+    protected static Range parseRange(String value, CronFieldType type) {
         if (value.equals(ASTERISK) || value.equals(QUESTION_MARK)) {
             return type.getRange();
         } else {

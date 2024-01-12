@@ -15,7 +15,6 @@ public class CronExpressionParser {
         parserMap.put(CronFieldType.DAY_OF_MONTH, new DayOfMonthParser());
         parserMap.put(CronFieldType.MONTH, new MonthParser());
         parserMap.put(CronFieldType.DAY_OF_WEEK, new DayOfWeekParser());
-
     }
 
     public Parser getParserInstance(CronFieldType type) {

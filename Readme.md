@@ -34,12 +34,6 @@
 
 ### Getting Codebase
 
-  ```bash
-  git clone "repository_url"
-  ```
-
-OR
-
 - Download code from drive and unzip
 
 ### Installing Java 17

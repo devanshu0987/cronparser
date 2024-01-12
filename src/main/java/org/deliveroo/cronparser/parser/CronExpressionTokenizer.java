@@ -20,7 +20,7 @@ public class CronExpressionTokenizer {
 
         List<String> tokens = List.of(expression.split(SPACE));
 
-        if (tokens.size() != Constant.noOfParts) {
+        if (tokens.size() != Constant.NO_OF_PARTS) {
             throw new IllegalArgumentException("Invalid count of parts");
         }
         return tokens;

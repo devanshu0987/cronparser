@@ -1,6 +1,5 @@
-package org.deliveroo.cronparser;
+package org.deliveroo.cronparser.model;
 
-import org.deliveroo.cronparser.model.CronExpression;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ParseExpressionTests {
+public class CronExpressionTest {
 
     @Test
     public void HappyPath() {
