@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CronExpressionTest {
 
     @Test
-    public void HappyPath() {
+    public void testHappyPath() {
         CronExpression exp = CronExpression.parse("*/15 0 1,15 * 1-5 ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(0, 15, 30, 45));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
@@ -20,7 +20,7 @@ public class CronExpressionTest {
     }
 
     @Test
-    public void HappyPathStar() {
+    public void testHappyPathStar() {
         CronExpression exp = CronExpression.parse("5,10 0 2 * * ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(5, 10));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
@@ -30,12 +30,12 @@ public class CronExpressionTest {
     }
 
     @Test
-    public void TestException() {
+    public void testException() {
         assertThrows(IllegalArgumentException.class, () -> CronExpression.parse("1 0 2 1 15 ls"));
     }
 
     @Test
-    public void TestQuestionMark(){
+    public void testQuestionMark(){
         CronExpression exp = CronExpression.parse("5,10 0 2 * ? ls");
         assertEquals(exp.getFields()[0].getItems(), List.of(5, 10));
         assertEquals(exp.getFields()[1].getItems(), List.of(0));
