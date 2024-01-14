@@ -13,4 +13,10 @@ public class DayOfWeekParserTest {
         CronField dayOfWeek = (new DayOfWeekParser()).parse("1");
         assertEquals(dayOfWeek.getItems(), List.of(1));
     }
+
+    @Test
+    public void testOneValueWord() {
+        CronField dayOfWeek = (new DayOfWeekParser()).parse("SAT");
+        assertEquals(dayOfWeek.getItems(), List.of(7));
+    }
 }
