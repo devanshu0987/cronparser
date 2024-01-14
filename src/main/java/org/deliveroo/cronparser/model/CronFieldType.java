@@ -7,6 +7,7 @@ public enum CronFieldType {
     DAY_OF_MONTH("DAY OF MONTH", new Range(1, 31)),
     MONTH("MONTH", new Range(1, 12)),
     DAY_OF_WEEK("DAY OF WEEK", new Range(1, 7)),
+    YEAR("YEAR", new Range(1970, 2999)),
     COMMAND("COMMAND", new Range(-1, -1));
 
     private final String name;

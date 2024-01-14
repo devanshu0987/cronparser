@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46a5b70-ff92-479f-a658-5a4c2031ccdf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/YearParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronFieldType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronFieldType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionTokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionTokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/util/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/model/CronExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/model/CronExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +60,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/devansm/Downloads/CronParser-20231219T180101Z-001/CronParser&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "year",
+    "last_opened_file_path": "C:/Users/devansm/Downloads/CronParser-20231219T180101Z-001/CronParser",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.deliveroo.cronparser.model" />
@@ -78,8 +83,8 @@
       <recent name="org.deliveroo.cronparser.model" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="FieldParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CronExpressionTest.testMultiPartCommand">
+    <configuration name="CronExpressionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -92,7 +97,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.deliveroo.cronparser.parser.FieldParserTest&quot;" />
+            <option value="&quot;org.deliveroo.cronparser.model.CronExpressionTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -103,7 +108,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FieldParserTest.testRange" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CronExpressionTest.testHappyPathStar" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -116,7 +121,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.deliveroo.cronparser.parser.FieldParserTest.testRange&quot;" />
+            <option value="&quot;org.deliveroo.cronparser.model.CronExpressionTest.testHappyPathStar&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -127,7 +132,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FieldParserTest.testValidation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CronExpressionTest.testMultiPartCommand" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -140,7 +145,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.deliveroo.cronparser.parser.FieldParserTest.testValidation&quot;" />
+            <option value="&quot;org.deliveroo.cronparser.model.CronExpressionTest.testMultiPartCommand&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -151,7 +156,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'cronparser.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CronExpressionTest.testYear" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -163,6 +168,8 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.deliveroo.cronparser.model.CronExpressionTest.testYear&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -199,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'cronparser.test'" />
+        <item itemvalue="Gradle.CronExpressionTest.testMultiPartCommand" />
+        <item itemvalue="Gradle.CronExpressionTest" />
+        <item itemvalue="Gradle.CronExpressionTest.testHappyPathStar" />
+        <item itemvalue="Gradle.CronExpressionTest.testYear" />
         <item itemvalue="Gradle.Tests in 'org.deliveroo.cronparser'" />
-        <item itemvalue="Gradle.FieldParserTest" />
-        <item itemvalue="Gradle.FieldParserTest.testRange" />
-        <item itemvalue="Gradle.FieldParserTest.testValidation" />
       </list>
     </recent_temporary>
   </component>
@@ -217,5 +224,8 @@
       <updated>1704949752140</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
