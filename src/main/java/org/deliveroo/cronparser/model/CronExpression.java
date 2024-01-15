@@ -37,10 +37,10 @@ public class CronExpression {
         }
     }
 
-    public String printParsedExpression() {
+    public String printParsedExpression(PrintConfiguration config) {
         StringBuilder res = new StringBuilder();
         for (var f : fields) {
-            res.append(f.printParsedExpression());
+            res.append(f.printParsedExpression(config));
             res.append(System.lineSeparator());
         }
 

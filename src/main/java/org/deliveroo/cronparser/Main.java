@@ -1,14 +1,12 @@
 package org.deliveroo.cronparser;
 
 import org.deliveroo.cronparser.model.CronExpression;
+import org.deliveroo.cronparser.model.PrintConfiguration;
 
 public class Main {
     public static void main(String[] args) {
-        if (args == null || args.length == 0) {
-            System.out.println("Invalid Input");
-        } else {
-            CronExpression exp = CronExpression.parse(args[0]);
-            System.out.println(exp.printParsedExpression());
-        }
+        CronExpression exp = CronExpression.parse("*/15 0 1,15 JAN-MAY 1-5 1970 ls -r -r");
+        PrintConfiguration config = new PrintConfiguration(true, true);
+        System.out.println(exp.printParsedExpression(config));
     }
 }
