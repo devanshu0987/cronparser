@@ -15,4 +15,9 @@ public class HourParser implements Parser {
 
         return FieldParser.parseField(expression, CronFieldType.HOUR);
     }
+
+    @Override
+    public boolean isValid(String expression) {
+        return false;
+    }
 }

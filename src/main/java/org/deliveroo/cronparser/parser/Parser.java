@@ -4,4 +4,6 @@ import org.deliveroo.cronparser.model.CronField;
 
 public interface Parser {
     CronField parse(String expression);
+
+    boolean isValid(String expression);
 }

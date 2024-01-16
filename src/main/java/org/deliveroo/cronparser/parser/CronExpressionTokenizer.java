@@ -25,13 +25,8 @@ public class CronExpressionTokenizer {
         // 0,1,2,3,4,5[YEAR OR COMMAND],Rest
         // Is there a way to find where command starts and where year ends
         // How do I know if 5th one is year or command.
-        boolean isFifthPartYear = true;
-        try {
-            YearParser yearParser = new YearParser();
-            yearParser.parse(tokens.get(5));
-        } catch (Exception ex) {
-            isFifthPartYear = false;
-        }
+        YearParser yearParser = new YearParser();
+        boolean isFifthPartYear = yearParser.isValid(tokens.get(5));
 
         if (!isFifthPartYear)
             tokens.add(5, "*");

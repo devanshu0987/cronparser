@@ -13,6 +13,7 @@ public class MonthParser implements Parser {
     String replaceWordsWithNumbers(String expression) {
         for (int index = 1; index < Constant.monthList.size(); index++) {
             expression = expression.replaceAll(Constant.monthList.get(index), String.valueOf(index));
+            // case-insensitive replace implementation: make the expression to be lower case from the start.
         }
         return expression;
     }
@@ -25,5 +26,10 @@ public class MonthParser implements Parser {
         expression = replaceWordsWithNumbers(expression);
 
         return FieldParser.parseField(expression, CronFieldType.MONTH);
+    }
+
+    @Override
+    public boolean isValid(String expression) {
+        return false;
     }
 }

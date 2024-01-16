@@ -10,4 +10,9 @@ public class DayOfMonthParser implements Parser {
 
         return FieldParser.parseField(expression, CronFieldType.DAY_OF_MONTH);
     }
+
+    @Override
+    public boolean isValid(String expression) {
+        return false;
+    }
 }

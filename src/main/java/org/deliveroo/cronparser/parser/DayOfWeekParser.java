@@ -18,4 +18,9 @@ public class DayOfWeekParser implements Parser {
         expression = replaceWordsWithNumbers(expression);
         return FieldParser.parseField(expression, CronFieldType.DAY_OF_WEEK);
     }
+
+    @Override
+    public boolean isValid(String expression) {
+        return false;
+    }
 }

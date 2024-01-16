@@ -14,4 +14,9 @@ public class MinuteParser implements Parser {
         }
         return FieldParser.parseField(expression, CronFieldType.MINUTE);
     }
+
+    @Override
+    public boolean isValid(String expression) {
+        return false;
+    }
 }

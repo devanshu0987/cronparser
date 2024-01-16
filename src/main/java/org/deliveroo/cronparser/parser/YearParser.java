@@ -13,4 +13,17 @@ public class YearParser implements Parser{
         }
         return FieldParser.parseField(expression, CronFieldType.YEAR);
     }
+
+    @Override
+    public boolean isValid(String expression) {
+        if(expression == null)
+            return false;
+        try {
+            parse(expression);
+            return true;
+        } catch (IllegalArgumentException ex)
+        {
+            return false;
+        }
+    }
 }

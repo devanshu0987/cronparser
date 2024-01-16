@@ -2,6 +2,9 @@ package org.deliveroo.cronparser.model;
 
 import org.deliveroo.cronparser.parser.*;
 
+import java.time.LocalDateTime;
+import java.time.temporal.Temporal;
+
 public class CronExpression {
     private CronField[] fields;
     private String expression;
@@ -35,6 +38,12 @@ public class CronExpression {
             // figure out a way to properly display messages here.
             throw new IllegalArgumentException(ex);
         }
+    }
+
+    Temporal getNext(Temporal currentTime) {
+        // we will do a brute force here.
+        return LocalDateTime.now();
+
     }
 
     public String printParsedExpression(PrintConfiguration config) {
