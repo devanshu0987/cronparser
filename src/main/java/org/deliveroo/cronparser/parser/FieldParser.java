@@ -24,7 +24,7 @@ public class FieldParser {
             if (slashPos == -1) {
                 // no slash present => no steps, take the full range if present.
                 // Only range left. Parse it using the type information and validate the ranges.
-                parsedCronField.setRange(parseRange(field, type));
+                parsedCronField.setRange(parseRange(field, type), 1);
             } else {
                 // Anything with a slash is a range
                 // 1/15 = [1-end]/15

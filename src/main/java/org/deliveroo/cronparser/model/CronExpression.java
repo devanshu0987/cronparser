@@ -1,9 +1,15 @@
 package org.deliveroo.cronparser.model;
 
-import org.deliveroo.cronparser.parser.*;
+import org.deliveroo.cronparser.parser.CronExpressionParser;
+import org.deliveroo.cronparser.parser.CronExpressionTokenizer;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CronExpression {
     private CronField[] fields;
@@ -56,6 +62,104 @@ public class CronExpression {
         res.append(String.format("%-14s", "COMMAND")).append(" : ").append(command);
         return res.toString();
 
+    }
+
+    String printList(List<Integer> items) {
+        int size = items.size();
+        if (size == 1)
+            return items.get(0).toString();
+        else {
+            var allButOne = items.subList(0, size - 1);
+            String firstPart = String.join(",",
+                    allButOne.stream().map(String::valueOf).collect(Collectors.toList()));
+            return firstPart + " and " + items.get(size - 1).toString();
+        }
+    }
+
+    boolean isFullRange(CronFieldType type, List<Integer> items) {
+        int rangeSize = type.getRange().getMax() - type.getRange().getMin() + 1;
+        if (items.size() == rangeSize)
+            return true;
+        return false;
+    }
+
+    public String printDescription() {
+        String ans = "At ";
+        for (var field : fields) {
+            if (isFullRange(field.getType(), field.getItems())) {
+                ans += "every " + field.getType().getName().toLowerCase();
+            } else {
+                ans += field.getType().getName().toLowerCase() + " " + printList(field.getItems());
+            }
+
+            if (field.getType() == CronFieldType.MINUTE)
+                ans += " past ";
+            else
+                ans += " and ";
+        }
+        return ans;
+    }
+
+    public List<LocalDateTime> nextNInstances(LocalDateTime time, int n) {
+        List<LocalDateTime> instances = new ArrayList<>();
+        while (n-- > 0) {
+            time = next(time);
+            if (time.isEqual(LocalDateTime.MAX))
+                break;
+            instances.add(time);
+            time = time.plus(1L, ChronoUnit.MINUTES);
+        }
+        return instances;
+    }
+
+    public LocalDateTime next(LocalDateTime time) {
+        LocalDateTime initialTime = time;
+        time = time.truncatedTo(ChronoUnit.MINUTES);
+        // Only explore next 50 years.
+        while (Math.abs(time.getYear() - initialTime.getYear()) < 50) {
+            int minute = time.get(ChronoField.MINUTE_OF_HOUR);
+            int hour = time.get(ChronoField.HOUR_OF_DAY);
+            int dayOfMonth = time.get(ChronoField.DAY_OF_MONTH);
+            int month = time.get(ChronoField.MONTH_OF_YEAR);
+            int dayOfWeek = time.get(ChronoField.DAY_OF_WEEK);
+            int year = time.get(ChronoField.YEAR);
+
+            if (!fields[5].getItems().contains(year)) {
+                time = time.truncatedTo(ChronoUnit.DAYS);
+                time = time.plus(1L, ChronoUnit.YEARS);
+                // set the time to first day of year.
+                time = time.withDayOfYear(1);
+                continue;
+            }
+            if (!fields[3].getItems().contains(month)) {
+                time = time.truncatedTo(ChronoUnit.DAYS);
+                time = time.plus(1L, ChronoUnit.MONTHS);
+                // set the time to first day of month.
+                time = time.withDayOfMonth(1);
+
+                continue;
+            }
+            if (!fields[4].getItems().contains(dayOfWeek) && !fields[2].getItems().contains(dayOfMonth)) {
+                time = time.plus(1L, ChronoUnit.DAYS);
+                time = time.truncatedTo(ChronoUnit.DAYS);
+                continue;
+            }
+
+            if (!fields[1].getItems().contains(hour)) {
+                time = time.plus(1L, ChronoUnit.HOURS);
+                time = time.truncatedTo(ChronoUnit.HOURS);
+                continue;
+            }
+
+            if (!fields[0].getItems().contains(minute)) {
+                time = time.plus(1L, ChronoUnit.MINUTES);
+                continue;
+            }
+            // reset seconds and milliseconds.
+            time = time.truncatedTo(ChronoUnit.MINUTES);
+            return time;
+        }
+        return LocalDateTime.MAX;
     }
 
     public CronField[] getFields() {

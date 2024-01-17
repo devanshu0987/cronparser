@@ -49,7 +49,12 @@ public class CronField {
 
     public void setRange(Range r, int delta) {
         for (int start = r.getMin(); start <= r.getMax(); start = start + delta) {
-            items.add(start);
+            if(!items.contains(start))
+                items.add(start);
         }
+    }
+
+    public CronFieldType getType() {
+        return type;
     }
 }

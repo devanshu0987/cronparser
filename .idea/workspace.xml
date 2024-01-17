@@ -8,14 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionTokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/CronExpressionTokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/DayOfMonthParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/DayOfMonthParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/DayOfWeekParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/DayOfWeekParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/HourParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/HourParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/MinuteParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/MinuteParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/MonthParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/MonthParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/YearParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/YearParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,16 +57,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "year",
-    "last_opened_file_path": "C:/Users/devansm/source/repos/reference/spring-framework",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;year&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/devansm/source/repos/reference/spring-framework&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.deliveroo.cronparser.model" />
@@ -86,7 +80,7 @@
       <recent name="org.deliveroo.cronparser.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.deliveroo.cronparser.Main" />
       <module name="cronparser.main" />
@@ -219,5 +213,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
