@@ -83,34 +83,19 @@ public class CronExpressionTest {
     @Test
     public void testNextAndPrev() {
         CronExpression exp = CronExpression.parse("*/15 0 1,15 5 1 * ls");
-        LocalDateTime now = LocalDateTime.parse("2013-11-09T08:12");
+        Random rand = new Random();
 
-        LocalDateTime startOfYear = now.withDayOfYear(1);
-        LocalDateTime nextstartOfYear = startOfYear.plus(1L, ChronoUnit.YEARS);
-        var nextN = exp.nextNInstances(startOfYear, 24);
-        var prevN = exp.prevNInstances(nextstartOfYear, 24);
-        Collections.reverse(prevN);
+        for (int i = 0; i < 20; i++) {
+            int add = rand.nextInt() % 100000;
+            LocalDateTime now = LocalDateTime.parse("2013-11-09T08:12").plus(add, ChronoUnit.MINUTES);
 
-        for (int i = 0; i < nextN.size(); i++) {
-            if (!nextN.get(i).equals(prevN.get(i))) {
-                System.out.println("Diff : " + nextN.get(i) + " " + prevN.get(i));
+            var nextN = exp.nextNInstances(now, 24);
+            var prevN = exp.prevNInstances(nextN.get(nextN.size() - 1).plus(1, ChronoUnit.MINUTES), 24);
+            Collections.reverse(prevN);
+
+            for (int k = 0; k < nextN.size(); k++) {
+                assertEquals(prevN.get(k).equals(nextN.get(k)), true, now + " : " + String.valueOf(k));
             }
         }
-    }
-
-    @Test
-    public void testRandom()
-    {
-        CronExpression exp = CronExpression.parse("*/15 0 1,15 5 1 * ls");
-        Random rand = new Random();
-        for(int i = 0; i < 20; i++)
-        {
-            int add = rand.nextInt() % 10000;
-            LocalDateTime curr = LocalDateTime.parse("2013-11-09T08:12").plus(add, ChronoUnit.MINUTES);
-            var prevOfNext = exp.prev(exp.next(curr));
-            var nextOfPrev = exp.next(exp.prev(curr));
-            assertEquals(prevOfNext, nextOfPrev, curr.toString());
-        }
-
     }
 }
