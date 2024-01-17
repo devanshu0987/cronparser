@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/parser/FieldParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/model/CronExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/deliveroo/cronparser/model/CronExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,8 +218,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="13" />
+          <line>171</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/deliveroo/cronparser/model/CronExpression.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

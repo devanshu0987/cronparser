@@ -112,6 +112,18 @@ public class CronExpression {
         return instances;
     }
 
+    public List<LocalDateTime> prevNInstances(LocalDateTime time, int n) {
+        List<LocalDateTime> instances = new ArrayList<>();
+        while (n-- > 0) {
+            time = prev(time);
+            if (time.isEqual(LocalDateTime.MAX))
+                break;
+            instances.add(time);
+            time = time.plus(-1L, ChronoUnit.MINUTES);
+        }
+        return instances;
+    }
+
     public LocalDateTime next(LocalDateTime time) {
         LocalDateTime initialTime = time;
         time = time.truncatedTo(ChronoUnit.MINUTES);
@@ -153,6 +165,57 @@ public class CronExpression {
 
             if (!fields[0].getItems().contains(minute)) {
                 time = time.plus(1L, ChronoUnit.MINUTES);
+                continue;
+            }
+            // reset seconds and milliseconds.
+            time = time.truncatedTo(ChronoUnit.MINUTES);
+            return time;
+        }
+        return LocalDateTime.MAX;
+    }
+
+    public LocalDateTime prev(LocalDateTime time) {
+        LocalDateTime initialTime = time;
+        time = time.truncatedTo(ChronoUnit.MINUTES);
+        // Only explore next 50 years.
+        while (Math.abs(time.getYear() - initialTime.getYear()) < 50) {
+            int minute = time.get(ChronoField.MINUTE_OF_HOUR);
+            int hour = time.get(ChronoField.HOUR_OF_DAY);
+            int dayOfMonth = time.get(ChronoField.DAY_OF_MONTH);
+            int month = time.get(ChronoField.MONTH_OF_YEAR);
+            int dayOfWeek = time.get(ChronoField.DAY_OF_WEEK);
+            int year = time.get(ChronoField.YEAR);
+
+            if (!fields[5].getItems().contains(year)) {
+                time = time.truncatedTo(ChronoUnit.DAYS);
+                // time = time.withDayOfYear(1);
+                time = time.plus(-1L, ChronoUnit.YEARS);
+                continue;
+            }
+            if (!fields[3].getItems().contains(month)) {
+                // time should be: 23:59.
+                // the day should be the last day of the month.
+                time = time.withHour(23).withMinute(59);
+                var newTime = time;
+                while(newTime.getMonth() == time.getMonth())
+                    newTime = newTime.plus(-1L, ChronoUnit.DAYS);
+                time = newTime;
+                continue;
+            }
+            if (!fields[4].getItems().contains(dayOfWeek) && !fields[2].getItems().contains(dayOfMonth)) {
+                // time = time.truncatedTo(ChronoUnit.DAYS);
+                time = time.plus(-1L, ChronoUnit.DAYS);
+                continue;
+            }
+
+            if (!fields[1].getItems().contains(hour)) {
+                // time = time.truncatedTo(ChronoUnit.HOURS);
+                time = time.plus(-1L, ChronoUnit.HOURS);
+                continue;
+            }
+
+            if (!fields[0].getItems().contains(minute)) {
+                time = time.plus(-1L, ChronoUnit.MINUTES);
                 continue;
             }
             // reset seconds and milliseconds.
