@@ -13,7 +13,7 @@ public enum CronFieldType {
     private final String name;
     private final Range range;
 
-    private CronFieldType(String name, Range range) {
+    CronFieldType(String name, Range range) {
         this.name = name;
         this.range = range;
     }

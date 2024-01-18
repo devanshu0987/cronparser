@@ -71,7 +71,9 @@ public class CronExpression {
         else {
             var allButOne = items.subList(0, size - 1);
             String firstPart = String.join(",",
-                    allButOne.stream().map(String::valueOf).collect(Collectors.toList()));
+                    allButOne.stream().map((x) -> {
+                        return String.valueOf(x);
+                    }).collect(Collectors.toList()));
             return firstPart + " and " + items.get(size - 1).toString();
         }
     }
@@ -190,6 +192,7 @@ public class CronExpression {
                 time = time.truncatedTo(ChronoUnit.DAYS);
                 // time = time.withDayOfYear(1);
                 time = time.plus(-1L, ChronoUnit.YEARS);
+                // you should only go till last day of the year, you are skipping.
                 continue;
             }
             if (!fields[3].getItems().contains(month)) {
@@ -197,7 +200,7 @@ public class CronExpression {
                 // the day should be the last day of the month.
                 time = time.withHour(23).withMinute(59);
                 var newTime = time;
-                while(newTime.getMonth() == time.getMonth())
+                while (newTime.getMonth() == time.getMonth())
                     newTime = newTime.plus(-1L, ChronoUnit.DAYS);
                 time = newTime;
                 continue;

@@ -22,6 +22,8 @@ public final class Constant {
             "OCT", "NOV", "DEC");
 
     public static List<String> dayOfWeekList = List.of(
-            "", "SUN", "MON", "TUES", "WED",
-            "THUR", "FRI", "SAT");
+            "", "SUN", "MON", "TUE", "WED",
+            "THU", "FRI", "SAT");
+
+
 }
